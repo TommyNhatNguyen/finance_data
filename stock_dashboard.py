@@ -62,13 +62,13 @@ else:
     data_cash_flow = financial_report(symbol=ticker, report_type='CashFlow', frequency=timeline)
 
 data_income_statement
-st.download_button('Tải em đi:', data_income_statement.to_csv().encode('utf-8'), mime='text/csv', file_name='IncomeStatement_{}.csv'.format(ticker))
+st.download_button('Tải em đi', data_income_statement.to_csv().encode('utf-8'), mime='text/csv', file_name='IncomeStatement_{}.csv'.format(ticker))
 
 data_balance_sheet
-st.download_button('Tải em đi:', data_balance_sheet.to_csv().encode('utf-8'), mime='text/csv', file_name='BalanceSheet_{}.csv'.format(ticker))
+st.download_button('Tải em đi', data_balance_sheet.to_csv().encode('utf-8'), mime='text/csv', file_name='BalanceSheet_{}.csv'.format(ticker))
 
 data_cash_flow
-st.download_button('Tải em đi:', data_cash_flow.to_csv().encode('utf-8'), mime='text/csv', file_name='CashFlow_{}.csv'.format(ticker))
+st.download_button('Tải em đi', data_cash_flow.to_csv().encode('utf-8'), mime='text/csv', file_name='CashFlow_{}.csv'.format(ticker))
 
 # fig3 = go.Figure(data=[go.Candlestick(x=data.index,
 #                 open=data['Open'],
