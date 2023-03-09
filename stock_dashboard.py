@@ -8,6 +8,17 @@ import datetime
 from collections import Counter
 import plotly.graph_objects as go
 
+import subprocess
+import sys
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+install(streamlit)
+install(plotly)
+install(vnstock)
+install(pandas)
+install(numpy)
+
 st.title('Stock Dashboard :chart_with_upwards_trend:')
 ticker = st.sidebar.text_input('Ticker', value='DRC')
 start_date = st.sidebar.date_input('Start Date', min_value=datetime.date(1996,11,28), value=datetime.date(2000,10,14)).strftime("%Y-%m-%d")
