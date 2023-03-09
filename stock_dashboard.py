@@ -30,7 +30,7 @@ data = stock_historical_data(
 # data['yearly_return'] = data['Close']/data['Close_t-256'] - 1 
 
 data
-st.download_button('Tải em đi :heart:', data.to_csv(), file_name='{}.csv'.format(ticker))
+st.download_button('Tải em đi', data.to_csv().encode('utf-8'), mime='text/csv', file_name='{}.csv'.format(ticker))
 
 fig = px.line(data, x=data.index, y=data['Close'], title=ticker)
 st.plotly_chart(fig)
@@ -42,13 +42,13 @@ source, timeline = st.columns(2)
 
 with source:
     source=st.radio(
-        "Choose Financial Report Source :bank:",
+        "Choose Financial Report Source",
         options=["SSI", "TCBS"],
     )
 
 with timeline:
     timeline=st.radio(
-        "Select financial report timeline :hourglass_flowing_sand:",
+        "Select financial report timeline",
         options=["Quarterly", "Yearly"],
     )
 
@@ -62,13 +62,13 @@ else:
     data_cash_flow = financial_report(symbol=ticker, report_type='CashFlow', frequency=timeline)
 
 data_income_statement
-st.download_button('Tải em đi :heart:', data_income_statement.to_csv(), file_name='IncomeStatement_{}.csv'.format(ticker))
+st.download_button('Tải em đi:', data_income_statement.to_csv().encode('utf-8'), mime='text/csv', file_name='IncomeStatement_{}.csv'.format(ticker))
 
 data_balance_sheet
-st.download_button('Tải em đi :heart:', data_balance_sheet.to_csv(), file_name='BalanceSheet_{}.csv'.format(ticker))
+st.download_button('Tải em đi:', data_balance_sheet.to_csv().encode('utf-8'), mime='text/csv', file_name='BalanceSheet_{}.csv'.format(ticker))
 
 data_cash_flow
-st.download_button('Tải em đi :heart:', data_cash_flow.to_csv(), file_name='CashFlow_{}.csv'.format(ticker))
+st.download_button('Tải em đi:', data_cash_flow.to_csv().encode('utf-8'), mime='text/csv', file_name='CashFlow_{}.csv'.format(ticker))
 
 # fig3 = go.Figure(data=[go.Candlestick(x=data.index,
 #                 open=data['Open'],
